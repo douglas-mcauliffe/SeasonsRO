@@ -1,0 +1,18 @@
+prontera,164,195,3	script	Plagiarism Master	795,{
+mes "[ ^FF0000Fu^000000 ]";
+mes "I have the abilities of many Jobs, I am a Master!";
+mes "What Skill do you need to copy?";
+set .@SkillID,select( implode( .SkillName$,":" ) ) - 1;
+mes "Selected "+.Skillname$[.@SkillID];
+close2;
+setunitdata(getnpcid(0),UNPC_DEX,300);
+setunitdata(getnpcid(0),UNPC_ATKMIN,50);
+setunitdata(getnpcid(0),UNPC_ATKMAX,100);
+unitskilluseid getnpcid(0),.SkillID[.@SkillID],10,getcharid(3);
+end;
+
+OnInit:
+setarray .SkillID[0],14,19,20,90,84,89,535,537,540,62,379;
+setarray .SkillName$[0],"Cold Bolt","Fire Bolt","Lightning Bolt","Earth Spike","Jupitel Thunder","Storm Gust","Crimson Fire Formation","Lightning Spear of Ice","Wind Blade","Bowling Bash","Soul Breaker";
+end;
+}
